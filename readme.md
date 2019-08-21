@@ -3,14 +3,14 @@
 
 ### ToDo List:
 
-- Base
-[x] Connect to cluster
+##### Base
+- [x] Connect to cluster
 
-- Validation
-[x] Schemas
+##### Validation
+- [x] Schemas
 
-- Data
-[x] Post
-[ ] Get
-[ ] Patch
-[ ] Delete
+##### Data
+- [x] Post
+- [ ] Get
+- [ ] Patch
+- [ ] Delete

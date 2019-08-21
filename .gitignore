@@ -21,3 +21,9 @@ $RECYCLE.BIN/
 # =========================
 # Operating System Files
 # =========================
+
+# Privacy
+mongo_string.txt
+
+# Python folders
+__pycache__

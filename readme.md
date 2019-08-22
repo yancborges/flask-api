@@ -11,6 +11,6 @@
 
 ##### Data
 - [x] Post
-- [ ] Get
+- [x] Get
 - [ ] Patch
 - [ ] Delete

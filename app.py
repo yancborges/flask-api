@@ -23,8 +23,8 @@ db = client[DB_NAME]
 
 ### Routes
 
-@app.route('/transactions', methods=['GET', 'POST'])
-def transaction():
+@app.route('/transactions/insert', methods=['POST'])
+def trs_insert():
 	if( request.method == 'POST' ):
 		try:
 			content = request.get_json()
@@ -34,9 +34,17 @@ def transaction():
 			else:
 				return jsonify({"error": miscFunctions.errorCodes(2)})
 			
+		except:
+			return jsonify({"error": miscFunctions.errorCodes(1)})
+
+@app.route('/transactions/get', methods=['GET'])
+def trs_get():
+	if( request.method == 'GET'):
+		try:
+			data = db['transactions'].find()
+			return jsonify(miscFunctions.vectorize(data))
 		except Exception as e:
 			return str(e)
-			#return jsonify({"error": miscFunctions.errorCodes(1)})
 
 @app.route('/')
 def index():

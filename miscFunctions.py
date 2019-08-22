@@ -23,7 +23,7 @@ def vectorize(obj):
 		# As the mongo ObjetcId is not JSON serializable, i had to took it off from the array.
 		# Some issues at internet has been solved using 'bson' module,
 		# however, it crashed my pymongo, so, as the document requested has an 'Id'	value,
-		# i decied to remove the mongo Id while i look for a better way.
+		# i decided to remove the mongo Id while i look for a better way.
 		item.pop('_id')
 
 		arr.append(item)

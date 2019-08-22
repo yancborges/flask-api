@@ -29,7 +29,7 @@ def trs_insert():
 		try:
 			content = request.get_json()
 			if(fileFormatting.validateFormat(content,'transactions')):
-				post_id = db['transactions'].insert_one(content).inserted_id
+				result = db['transactions'].insert_one(content)
 				return jsonify({"status": "success"})
 			else:
 				return jsonify({"error": miscFunctions.errorCodes(2)})
@@ -43,8 +43,22 @@ def trs_get():
 		try:
 			data = db['transactions'].find()
 			return jsonify(miscFunctions.vectorize(data))
+		except:
+			return jsonify({"error": miscFunctions.errorCodes(1)})
+
+@app.route('/transactions/patch/<string:trs_id>', methods=['PATCH'])
+def trs_patch(trs_id):
+	if( request.method == 'PATCH'):
+		try:
+			content = request.get_json()
+			if(fileFormatting.validateFormat(content,'transactions')):
+				result = db['transactions'].update_one({'Id': trs_id}, {'$set': content})
+				count = result.modified_count
+				return jsonify({"status": "success", "modified_documents": count})
+			else:
+				return jsonify({"error": miscFunctions.errorCodes(2)})
 		except Exception as e:
-			return str(e)
+			return jsonify({"error": miscFunctions.errorCodes(1)})
 
 @app.route('/')
 def index():

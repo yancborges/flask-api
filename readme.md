@@ -13,15 +13,20 @@
 - [x] Post
 - [x] Get
 - [x] Patch
-- [ ] Delete
+- [x] Delete
 
 ##### Functions
-- [ ] Filtered search
+- [x] Filtered search
 
 ##### Update
-- [ ] Add timestamp
-- [ ] Remove date and time
+- [x] Add timestamp
+- [x] Remove date and time
+
+##### Misc
+- [ ] Add json files
+- [ ] Zip and send!
 
 ##### Questions for later:
 - Add endpoint for adding/patching/deleting multiple documents?
 - Patch/delete better in url or body request?
+- Na busca, os campos sempre vão ser data e valor, ou pode-se filtrar por apenas um?

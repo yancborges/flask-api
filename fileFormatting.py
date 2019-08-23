@@ -6,8 +6,7 @@ from jsonschema import validate
 # Schemas
 
 TRANSACTION_SCHEMA = {
-	"Data": "string",
-    "Hora": "string",
+	"DataHora": "timestamp",
     "id": "string",
     "ContaInicial": "double",
     "ContaFinal": "double",

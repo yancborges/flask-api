@@ -1,6 +1,6 @@
 # Modules
 
-from flask import Flask, request, jsonify, make_response
+from flask import Flask, request, jsonify, make_response, render_template
 from flask_pymongo import PyMongo
 import jwt
 from pymongo import MongoClient
@@ -145,7 +145,7 @@ def trs_search():
 
 @app.route('/')
 def index():
-	return 'Welcome, its working!'
+	return render_template('index.html')
 
 # Running
 

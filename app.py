@@ -65,13 +65,23 @@ def trs_insert():
 	if( request.method == 'POST' ):
 		try:
 			content = request.get_json()
-			if(fileFormatting.validateFormat(content,'transactions')):
-				result = db['transactions'].insert_one(content)
-				return jsonify({"status": "success"})
+			print(content,len(content))
+			if(len(content) == 1):
+				if(fileFormatting.validateFormat(content,'transactions')):
+					result = db['transactions'].insert_one(content[0])
+					return jsonify({"status": "success", 'inserted_documents': 1})
+				else:
+					return jsonify({"status": "error", "message": miscFunctions.errorCodes(2)})
 			else:
-				return jsonify({"status": "error", "message": miscFunctions.errorCodes(2)})
-			
-		except:
+				insert_query = []
+				for doc in content:
+					insert_query.append(fileFormatting.validateFormat(content, 'transactions'))
+				result = db['transactions'].insert_many(content)
+				return jsonify({'status': 'success', 'inserted_documents': insert_query.count(True)})
+
+						
+		except Exception as e:
+			print(str(e))
 			return jsonify({"status": "error", "message": miscFunctions.errorCodes(1)})
 
 @app.route('/transactions/get', methods=['GET'])

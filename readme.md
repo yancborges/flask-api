@@ -22,7 +22,7 @@
 ##### Update
 - [x] Add timestamp
 - [x] Remove date and time
-- [ ] Rewrite into multiple-queries (post)
+- [x] Rewrite into multiple-queries (post)
 
 ##### Misc
 - [ ] Add json files

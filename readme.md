@@ -26,5 +26,4 @@
 
 ##### Misc
 - [x] Add json files
-- [ ] Zip and send!
-- [ ] Index HTML page
+- [x] Index HTML page

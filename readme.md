@@ -17,16 +17,14 @@
 
 ##### Functions
 - [x] Filtered search
+- [x] Add JWT
 
 ##### Update
 - [x] Add timestamp
 - [x] Remove date and time
+- [ ] Rewrite into multiple-queries (post)
 
 ##### Misc
 - [ ] Add json files
 - [ ] Zip and send!
-
-##### Questions for later:
-- Add endpoint for adding/patching/deleting multiple documents?
-- Patch/delete better in url or body request?
-- Na busca, os campos sempre vão ser data e valor, ou pode-se filtrar por apenas um?
+- [ ] Index HTML page

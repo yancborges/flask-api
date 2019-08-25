@@ -1,8 +1,11 @@
 # Modules
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, make_response
 from flask_pymongo import PyMongo
+import jwt
 from pymongo import MongoClient
+
+from functools import wraps
 
 import miscFunctions
 import fileFormatting
@@ -10,6 +13,7 @@ import fileFormatting
 # Consts
 
 DB_NAME = "test"
+USER_PASSWORD = '123'
 
 # Config
 
@@ -21,9 +25,42 @@ mongo = PyMongo(app)
 client = MongoClient(miscFunctions.loadString())
 db = client[DB_NAME]
 
+### Auth
+
+@app.route('/auth')
+def auth():
+	auth = request.authorization
+	if auth and (auth.password == USER_PASSWORD):
+		
+		token = jwt.encode({'user': auth.username}, app.secret_key)
+		return jsonify({'token': token.decode('UTF-8')})
+
+	return make_response('Could not verify credentials', 401, {'WWW-Authenticate': 'Basic realm="Login required"'})
+
+def token_required(f):
+	@wraps(f)
+	def decorated(*args,**kwargs):
+		token = request.args.get('token')
+		
+		if('x-access-token' in request.headers):
+			token = request.headers['x-access-token']
+
+		if not token:
+			return jsonify({'message': miscFunctions.errorCodes(3)})
+
+		try:
+			data = jwt.decode(token, app.secret_key)
+		except:
+			return jsonify({'message': miscFunctions.errorCodes(4)})
+
+		return f(*args,**kwargs)
+
+	return decorated
+
 ### Routes
 
 @app.route('/transactions/insert', methods=['POST'])
+@token_required
 def trs_insert():
 	if( request.method == 'POST' ):
 		try:
@@ -38,6 +75,7 @@ def trs_insert():
 			return jsonify({"status": "error", "message": miscFunctions.errorCodes(1)})
 
 @app.route('/transactions/get', methods=['GET'])
+@token_required
 def trs_get():
 	if( request.method == 'GET'):
 		try:
@@ -47,6 +85,7 @@ def trs_get():
 			return jsonify({"status": "error", "message": miscFunctions.errorCodes(1)})
 
 @app.route('/transactions/patch', methods=['PATCH'])
+@token_required
 def trs_patch():
 	if( request.method == 'PATCH'):
 		try:
@@ -61,6 +100,7 @@ def trs_patch():
 			return jsonify({"status": "error", "message": miscFunctions.errorCodes(1)})
 
 @app.route('/transactions/delete', methods=['DELETE'])
+@token_required
 def trs_delete():
 	if( request.method == 'DELETE'):
 		try:
@@ -75,6 +115,7 @@ def trs_delete():
 			return jsonify({"status": "error", "message": miscFunctions.errorCodes(1)})
 
 @app.route('/transactions/search', methods=['POST'])
+@token_required
 def trs_search():
 	if( request.method == 'POST'):
 		try:

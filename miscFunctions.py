@@ -9,6 +9,10 @@ def errorCodes(code):
 		return 'Something gone wrong'
 	elif(code == 2):
 		return 'Error: Wrong format'
+	elif(code == 3):
+		return 'Error: Token is missing'
+	elif(code == 4):
+		return 'Error: Token is invalid'
 	else:
 		return 'success'
 

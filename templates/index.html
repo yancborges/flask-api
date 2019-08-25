@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Flask API Test - Yan Carvalho</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+	<nav class="navbar bg-warning" style="padding: 30px; margin-bottom: 30px;">
+		<h2>Flask API - Test</h2>
+		<h2 class="text-right">Author: Yan Carvalho Borges</h4>
+	</nav>
+	<div class="container">
+		<div class="row">
+		<div class="row">
+			<div class="col-lg-6">
+				<h4>Technologies used:</h4>
+				<span class="badge badge-info">Flask</span>
+				<span class="badge badge-info">MongoDB (pymongo)</span>
+				<span class="badge badge-info">JWT (pyjwt)</span>
+				<hr/>
+
+				<h4>Usage:</h4>
+				<p>Going to /auth page, an access token will be given.<br/>
+					I setted password in code because the intention was only make the authorization system to work,
+					saving some time of coding another kind of document for user management
+				</p>
+
+				<h4>Pages:</h4>
+				<ul>
+					<li>/auth</li><p>Returns a access token based on users credential and <strong>Flask secret key</strong>.
+						User is unset and password is <strong>123</strong>
+				</ul>
+				<ul>
+					<li>/transactions/insert</li><p>Takes a list of documents for inserting</p>
+					<span class="badge badge-success">Token required!</span>
+				</ul>
+				<ul>
+					<li>/transactions/get</li><p>Return a list with all the documents stored</p>
+					<span class="badge badge-success">Token required!</span>
+				</ul>
+				<ul>
+					<li>/transactions/patch</li><p>Takes a single document for patching data, filters based on <strong>Id</strong> field</p>
+					<span class="badge badge-success">Token required!</span>
+				</ul>
+				<ul>	
+					<li>/transactions/delete</li><p>Takes a single document with an <strong>Id</strong> value for deleting matching documents</p>
+					<span class="badge badge-success">Token required!</span>
+				</ul>
+				<ul>
+					<li>/transactions/search</li><p>Recieves a document with <strong>DataHora</strong> and <strong>Valor</strong> field, and return any documents where values are greater or equal then the ones passed</p>
+					<span class="badge badge-success">Token required!</span>
+				</ul>
+			</div>
+			<div class="col-lg-6">
+				<h4>File formatting</h4>
+				<p>This is the schema setted for each transaction:</p>
+				<code>
+					{
+						"DataHora": "timestamp",
+    					"Id": "string",
+    					"ContaInicial": "double",
+    					"ContaFinal": "double",
+    					"Valor": "double"
+    				}
+    			</code>
+    			<p class="text-muted">You can check the requests I make testing it with this <a href="">Post man file</a>
+    			<br/><br/>
+    			<h4>Useful info</h4>
+    			<a href="https://github.com/yancborges/flask-api">Repository link</a><br/>
+    			<a href="https://www.linkedin.com/in/yan-carvalho-borges-576b2a161/">LinkedIn Profile</a><br/>
+    			<span>yan.cborges@gmail.com</span><br/>
+    		</div>
+		</div>
+	</div>
+</body>
+</html>

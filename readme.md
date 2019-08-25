@@ -25,6 +25,6 @@
 - [x] Rewrite into multiple-queries (post)
 
 ##### Misc
-- [ ] Add json files
+- [x] Add json files
 - [ ] Zip and send!
 - [ ] Index HTML page

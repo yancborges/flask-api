@@ -1,0 +1,239 @@
+{
+	"id": "c1861a75-e469-08da-ba19-ea349e94e968",
+	"name": "flask-api testing",
+	"description": "",
+	"order": [
+		"14a9de3b-d058-ae22-fd4d-282f83a90224",
+		"1a492c34-58c9-879e-53f6-bf118cdd67c3",
+		"f260e370-8f06-6f8c-e4d9-f8b9aba02ea6",
+		"4b5f9a97-d497-160a-e48a-95f6302a7b6d",
+		"c169c22d-0f72-25c9-7544-1cc7af345e52",
+		"6a2bc239-dcce-b1fe-7970-57f1c773dbb2"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1566764030922,
+	"owner": "8384364",
+	"public": false,
+	"requests": [
+		{
+			"id": "14a9de3b-d058-ae22-fd4d-282f83a90224",
+			"headers": "Content-Type: application/json\nx-access-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidHl1In0.i2XjEkp3R_VfAs9ZvKUAU18kr-oIQ0PWdycrxlku7J4\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "x-access-token",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidHl1In0.i2XjEkp3R_VfAs9ZvKUAU18kr-oIQ0PWdycrxlku7J4",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:5000/transactions/patch",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "PATCH",
+			"collectionId": "c1861a75-e469-08da-ba19-ea349e94e968",
+			"data": [],
+			"dataMode": "raw",
+			"name": "localhost:5000/transactions/patch",
+			"description": "Testing patching endpoint",
+			"descriptionFormat": "html",
+			"time": 1566764108201,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\r\n    \"Id\": \"111\",\r\n    \"Valor\": 10000\r\n}\r\n"
+		},
+		{
+			"id": "1a492c34-58c9-879e-53f6-bf118cdd67c3",
+			"headers": "x-access-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidHl1In0.i2XjEkp3R_VfAs9ZvKUAU18kr-oIQ0PWdycrxlku7J4\n",
+			"headerData": [
+				{
+					"key": "",
+					"value": "",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "x-access-token",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidHl1In0.i2XjEkp3R_VfAs9ZvKUAU18kr-oIQ0PWdycrxlku7J4",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:5000/transactions/get",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "c1861a75-e469-08da-ba19-ea349e94e968",
+			"data": null,
+			"dataMode": "params",
+			"name": "localhost:5000/transactions/get",
+			"description": "Testing get endpoint",
+			"descriptionFormat": "html",
+			"time": 1566764175529,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "4b5f9a97-d497-160a-e48a-95f6302a7b6d",
+			"headers": "Content-Type: application/json\nx-access-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidHl1In0.i2XjEkp3R_VfAs9ZvKUAU18kr-oIQ0PWdycrxlku7J4\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "x-access-token",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidHl1In0.i2XjEkp3R_VfAs9ZvKUAU18kr-oIQ0PWdycrxlku7J4",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:5000/transactions/insert",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1566764261295,
+			"name": "localhost:5000/transactions/insert",
+			"description": "Testing single document insertion",
+			"collectionId": "c1861a75-e469-08da-ba19-ea349e94e968",
+			"responses": [],
+			"rawModeData": "[\n\t{\n\t\t\"DataHora\": 1566763471,\n    \t\"Id\": \"110\",\n    \t\"ContaInicial\": 70.00,\n    \t\"ContaFinal\": 20.00,\n    \t\"Valor\": 50.00\n\t},\n\t{\n\t\t\"DataHora\": 1566763471,\n    \t\"Id\": \"109\",\n    \t\"ContaInicial\": 50.00,\n    \t\"ContaFinal\": 2.00,\n    \t\"Valor\": 48.00\n\t},\n\t{\n\t\t\"DataHora\": 1566763471,\n    \t\"Id\": \"111\",\n    \t\"ContaInicial\": 150.00,\n    \t\"ContaFinal\": 200.00,\n    \t\"Valor\": 50.00\n\t}\n]"
+		},
+		{
+			"id": "6a2bc239-dcce-b1fe-7970-57f1c773dbb2",
+			"headers": "Content-Type: application/json\nx-access-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidHl1In0.i2XjEkp3R_VfAs9ZvKUAU18kr-oIQ0PWdycrxlku7J4\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "x-access-token",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidHl1In0.i2XjEkp3R_VfAs9ZvKUAU18kr-oIQ0PWdycrxlku7J4",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:5000/transactions/search",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "c1861a75-e469-08da-ba19-ea349e94e968",
+			"data": [],
+			"dataMode": "raw",
+			"name": "localhost:5000/transactions/search",
+			"description": "Testing search endpoint",
+			"descriptionFormat": "html",
+			"time": 1566764326369,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"DataHora\": 1566583990,\n\t\"Valor\": 10\n}"
+		},
+		{
+			"id": "c169c22d-0f72-25c9-7544-1cc7af345e52",
+			"headers": "Content-Type: application/json\nx-access-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidHl1In0.i2XjEkp3R_VfAs9ZvKUAU18kr-oIQ0PWdycrxlku7J4\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "x-access-token",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidHl1In0.i2XjEkp3R_VfAs9ZvKUAU18kr-oIQ0PWdycrxlku7J4",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:5000/transactions/insert",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "c1861a75-e469-08da-ba19-ea349e94e968",
+			"data": [],
+			"dataMode": "raw",
+			"name": "localhost:5000/transactions/insert",
+			"description": "Testing multiple documents insertion",
+			"descriptionFormat": "html",
+			"time": 1566764311841,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "[\n\t{\n\t\t\"DataHora\": 1566763471,\n    \t\"Id\": \"120\",\n    \t\"ContaInicial\": 70.00,\n    \t\"ContaFinal\": 20.00,\n    \t\"Valor\": 5000.00\n\t}\n]"
+		},
+		{
+			"id": "f260e370-8f06-6f8c-e4d9-f8b9aba02ea6",
+			"headers": "Content-Type: application/json\nx-access-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidHl1In0.i2XjEkp3R_VfAs9ZvKUAU18kr-oIQ0PWdycrxlku7J4\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "x-access-token",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidHl1In0.i2XjEkp3R_VfAs9ZvKUAU18kr-oIQ0PWdycrxlku7J4",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:5000/transactions/delete",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "DELETE",
+			"collectionId": "c1861a75-e469-08da-ba19-ea349e94e968",
+			"data": [],
+			"dataMode": "raw",
+			"name": "localhost:5000/transactions/delete",
+			"description": "Testing delete endpoint",
+			"descriptionFormat": "html",
+			"time": 1566764227955,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"Id\": \"002\"\n}"
+		}
+	]
+}

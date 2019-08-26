@@ -65,9 +65,8 @@ def trs_insert():
 	if( request.method == 'POST' ):
 		try:
 			content = request.get_json()
-			print(content,len(content))
 			if(len(content) == 1):
-				if(fileFormatting.validateFormat(content,'transactions')):
+				if(fileFormatting.validateFormat(content[0],'transactions_post')):
 					result = db['transactions'].insert_one(content[0])
 					return jsonify({"status": "success", 'inserted_documents': 1})
 				else:
@@ -75,13 +74,12 @@ def trs_insert():
 			else:
 				insert_query = []
 				for doc in content:
-					insert_query.append(fileFormatting.validateFormat(content, 'transactions'))
+					insert_query.append(fileFormatting.validateFormat(doc, 'transactions_post'))
 				result = db['transactions'].insert_many(content)
 				return jsonify({'status': 'success', 'inserted_documents': insert_query.count(True)})
 
 						
-		except Exception as e:
-			print(str(e))
+		except:
 			return jsonify({"status": "error", "message": miscFunctions.errorCodes(1)})
 
 @app.route('/transactions/get', methods=['GET'])
@@ -100,7 +98,7 @@ def trs_patch():
 	if( request.method == 'PATCH'):
 		try:
 			content = request.get_json()
-			if(fileFormatting.validateFormat(content,'transactions')):
+			if(fileFormatting.validateFormat(content,'transactions_patch')):
 				result = db['transactions'].update_one({'Id': content['Id']}, {'$set': content})
 				count = result.modified_count
 				return jsonify({"status": "success", "modified_documents": count})
@@ -115,7 +113,7 @@ def trs_delete():
 	if( request.method == 'DELETE'):
 		try:
 			content = request.get_json()
-			if(fileFormatting.validateFormat(content, 'transactions')):
+			if(fileFormatting.validateFormat(content, 'transactions_delete')):
 				result = db['transactions'].delete_one({'Id': content['Id']})
 				count = result.deleted_count
 				return jsonify({"status": "success", "deleted_documents": count})
@@ -130,7 +128,7 @@ def trs_search():
 	if( request.method == 'POST'):
 		try:
 			content = request.get_json()
-			if(fileFormatting.validateFormat(content, 'transactions')):
+			if(fileFormatting.validateFormat(content, 'transactions_search')):
 				data = db['transactions'].find(
 					{
 						"DataHora": { "$gte": content["DataHora"] },

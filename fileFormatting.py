@@ -17,7 +17,7 @@ TRANSACTION_SCHEMA = {
     "Valor": "double"
 }'''
 
-TRANSACTION_SCHEMA_POST = {
+TRANSACTION_SCHEMA = {
 	"type": "object",
 	"properties": {
 		"DataHora": {"type": "number"},
@@ -25,33 +25,8 @@ TRANSACTION_SCHEMA_POST = {
     	"ContaInicial": {"type": "number"},
     	"ContaFinal": {"type": "number"},
     	"Valor": {"type": "number"}
-	}
-}
-
-TRANSACTION_SCHEMA_PATCH = {
-	"type": "object",
-	"properties": {
-		"DataHora": {"type": "number"},
-    	"Id": {"type": "string"},
-    	"ContaInicial": {"type": "number"},
-    	"ContaFinal": {"type": "number"},
-    	"Valor": {"type": "number"}
-	}
-}
-
-TRANSACTION_SCHEMA_DELETE = {
-	"type": "object",
-	"properties": {
-		"Id": {"type": "string"}
-	}
-}
-
-TRANSACTION_SCHEMA_SEARCH = {
-	"type": "object",
-	"properties": {
-		"DataHora": {"type": "number"},
-    	"Valor": {"type": "number"}
-	}
+	},
+	"additionalProperties": False
 }
 
 # Functions
@@ -75,10 +50,7 @@ def isJson(file):
 
 def getSchema(page):
 	schemas = {
-		"transactions_post": TRANSACTION_SCHEMA_POST,
-		"transactions_patch": TRANSACTION_SCHEMA_PATCH,
-		"transactions_delete": TRANSACTION_SCHEMA_DELETE,
-		"transactions_search": TRANSACTION_SCHEMA_SEARCH
+		"transactions": TRANSACTION_SCHEMA,
 	}
 	return schemas[page]
 		
